@@ -1,0 +1,12 @@
+.banner01{
+    background-image: url('../imagens/banner.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 100%;
+}
+
+.pesquisa-banner{
+    top: 80%;
+}
