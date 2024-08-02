@@ -7,6 +7,11 @@
     width: 100%;
 }
 
+.imagem-card {
+    height: 150px;
+    object-fit: cover;
+}
+
 .pesquisa-banner{
     top: 80%;
 }
