@@ -12,6 +12,11 @@
     object-fit: cover;
 }
 
+.secao {
+    height: 400px;
+}
+
+
 .pesquisa-banner{
     top: 80%;
 }
