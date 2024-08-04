@@ -1,15 +1,41 @@
 <?php 
-    if(isset($_POST['enviar'])){
+if(isset($_POST['enviar'])){
 
-        include_once('config.php');
-    
-        $nome = $_POST['nome'];
-        $senha = $_POST['senha'];
-        $email = $_POST['email'];
+    include_once('config.php');
 
-        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, email, senha) VALUES ('$nome', '$email', '$senha')");
+    // Captura os dados do formulário
+    $nome = $_POST['nome'];
+    $senha = $_POST['senha'];
+    $email = $_POST['email'];
+    $tipo = $_POST['tipo'];
 
+    // Insere o usuário na tabela usuarios
+    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, email, senha, tipo_usuario) VALUES ('$nome', '$email', '$senha', '$tipo')");
+
+    if ($result) {
+        $id_usuario = mysqli_insert_id($conexao);
+
+        if ($tipo == 'prestador') {
+            $stmt = $conexao->prepare("INSERT INTO candidatos (id_usuario) VALUES (?)");
+            $stmt->bind_param("i", $id_usuario);
+            if ($stmt->execute()) {
+                header('Location: sucesso.html');
+            } else {
+                header('Location: sem_sucesso.html');
+            }
+        } elseif ($tipo == 'empregador') {
+            $stmt = $conexao->prepare("INSERT INTO empregadores (id_usuario) VALUES (?)");
+            $stmt->bind_param("i", $id_usuario);
+            if ($stmt->execute()) {
+                header('Location: sucesso.html');
+            } else {
+                header('Location: sem_sucesso.html');
+            }
+        }
+    } else {
+        echo "Erro ao inserir usuário: " . mysqli_error($conexao);
     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,8 +54,8 @@
     <form action="registrar.php" method="POST">
         <div class="main-container">
             <img src="imagens/logo02.PNG" alt="Logo" class="logo ms-5" width="80">
-            <h1 class="primary">Registre-se</h1>
             <div class="form-floating position-relative mb-1 ">
+                <h1 class="h1">Registre-se</h1>
                 <input type="text" name="nome" class="form-control" id="floatingNome" placeholder="Nome Completo" required>    
                 <label for="floatingNome" class="labels"></label>
             </div>
@@ -41,9 +67,17 @@
                 <input type="email" name="email" class="form-control" id="floatingEmail" placeholder="Email" required>    
                 <label for="floatingEmail" class="labels"></label>
             </div>
+            <div class="form-floating position-relative mb-1 form-check">
+                <input type="radio" name="tipo" id="prestador" value="prestador" required>
+                <label for="candidato">Prestador</label>
+
+                <input type="radio" name="tipo" id="empregador" value="empregador" required>    
+                <label for="empregador">Empregador</label>
+                
+            </div>
             <button type="submit" name="enviar" class="btn btn-custom">Registrar</button>
             <br>
-            <button type="button" class="register-btn" onclick="window.location.href='login.html'">Voltar</button>
+            <button type="button" class="register-btn" onclick="window.location.href='login.php'">Voltar</button>
         </div>
     </form>
 </body>

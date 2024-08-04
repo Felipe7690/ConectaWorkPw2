@@ -1,3 +1,16 @@
+<?php 
+    session_start();
+
+    if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)){
+
+        $_SESSION['email'] = $email;
+        $_SESSION['senha'] = $senha;
+        header('Location: login.php');
+    }
+    
+    $logado = $_SESSION['email'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,8 +23,8 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
-            <a href="index.html">
-                <img src="imagens/logo01.PNG" class="ms-5" alt="Logo" width="80" height="80">
+            <a href="index.php">
+                <img src="imagens/logo01.PNG" class="ms-5" alt="Logo" width="105">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -21,7 +34,10 @@
                 <div class="navbar-nav position-absolute top-50 end-0 translate-middle">
                     <a class="nav-link link-light" href="#">Gerenciar Trabalhos</a>
                     <a class="nav-link active link-light" aria-current="page" href="perfil/perfil_inicio.html">Perfil</a>
+                    <a class="nav-link active link-light" aria-current="page" href="login.php">Sair</a>
+
                 </div>
+                
             </div>
         </div>
     </nav>
@@ -76,6 +92,7 @@
             </div>
         </div>
     </footer>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
