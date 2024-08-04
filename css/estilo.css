@@ -22,7 +22,7 @@
     top: 80%;
 }
 
-body, html {
+.box {
     height: 100%;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
