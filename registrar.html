@@ -8,90 +8,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: 'Open Sans', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #0d6efd;
-        }
+    <link rel="stylesheet" href="css/estilo.css">
 
-        .main-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            width: 300px;
-            text-align: center;
-        }
 
-        .form-floating {
-            margin-bottom: 1.5em;
-        }
-
-        .form-floating input {
-            border-radius: 25px;
-            border: 2px solid #0d6efd;
-            padding: 10px 20px;
-        }
-
-        .form-floating input::placeholder {
-            color: #aaa;
-        }
-
-        .form-floating label {
-            padding-left: 30px;
-        }
-
-        .btn-custom {
-            background-color: #0d6efd;
-            color: #fff;
-            border-radius: 25px;
-            padding: 10px 20px;
-            width: 50%;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .btn-custom:hover {
-            background-color: #0b5ed7;
-        }
-
-        .form-floating .fa {
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            color: #aaa;
-        }
-
-        .register-btn {
-            margin-top: 10px; /* Para dar um espaço entre o botão de login e o botão de registro */
-            border: none; /* Remove bordas */
-            background: none; /* Remove fundo */
-            color: #0d6efd; /* Cor do texto */
-            text-decoration: underline; /* Adiciona sublinhado */
-            cursor: pointer; /* Muda o cursor para indicar que é clicável */
-        }
-
-        .register-btn:hover {
-            color: #0b5ed7; /* Altera a cor ao passar o mouse */
-        }
-    </style>
 </head>
 <body>
     <div class="main-container">
-        <h1>Registre-se</h1>
+        <h1 class="primary">Registre-se</h1>
             <div class="form-floating position-relative">
                 <input type="text" class="form-control" id="floatingUser" placeholder="Nome Completo" required>    
             </div>
             <div class="form-floating position-relative">
                 <input type="text" class="form-control" id="floatingPassword" placeholder="Senha" required>    
-            </div>
-            <div class="form-floating position-relative">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Confirmar senha" required>
             </div>
             <div class="form-floating position-relative">
                 <input type="text" class="form-control" id="floatingUser" placeholder="Email" required>    

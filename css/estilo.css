@@ -7,6 +7,7 @@
     width: 100%;
 }
 
+
 .imagem-card {
     height: 150px;
     object-fit: cover;
@@ -19,4 +20,82 @@
 
 .pesquisa-banner{
     top: 80%;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0d6efd;
+}
+
+.main-container {
+    background-color: #f7fffe;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+}
+
+.logo {
+    width: 140px;
+    margin-bottom: 20px;
+}
+
+.form-floating {
+    margin-bottom: 1.5em;
+}
+
+.form-floating input {
+    border-radius: 2px;
+    border: 2px solid #b3b3b3;
+    padding: 10px 45px;
+}
+
+.form-floating input::placeholder {
+    color: #757575;
+}
+
+.form-floating label {
+    padding-left: 30px;
+}
+
+.btn-custom {
+    background-color: #0d6efd;
+    color: #fff;
+    border-radius: 15px;
+    padding: 15px 20px;
+    width: 50%;
+    font-weight: bold;
+    margin-top: 5px;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #0b5ed7;
+    cursor: pointer;
+}
+
+.form-floating .fa {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    color: #aaa;
+}
+
+.register-btn {
+    margin-top: 10px; 
+    border: none; 
+    background: none; 
+    color: #0d6efd; 
+    text-decoration: underline; 
+    cursor: pointer; /
+}
+
+.register-btn:hover {
+    color: #0b5ed7; 
 }
