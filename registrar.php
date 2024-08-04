@@ -27,6 +27,7 @@
 <body class="box">
     <form action="registrar.php" method="POST">
         <div class="main-container">
+            <img src="imagens/logo02.PNG" alt="Logo" class="logo ms-5" width="80">
             <h1 class="primary">Registre-se</h1>
             <div class="form-floating position-relative mb-1 ">
                 <input type="text" name="nome" class="form-control" id="floatingNome" placeholder="Nome Completo" required>    
@@ -41,6 +42,8 @@
                 <label for="floatingEmail" class="labels"></label>
             </div>
             <button type="submit" name="enviar" class="btn btn-custom">Registrar</button>
+            <br>
+            <button type="button" class="register-btn" onclick="window.location.href='login.html'">Voltar</button>
         </div>
     </form>
 </body>
