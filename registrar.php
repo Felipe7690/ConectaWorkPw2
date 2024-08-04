@@ -1,8 +1,13 @@
 <?php 
-    if(isset($_POST['submit'])){
-        print_r($_POST['nome']);
-        print_r($_POST['senha']);
-        print_r($_POST['email']);
+    if(isset($_POST['enviar'])){
+
+        include_once('config.php');
+    
+        $nome = $_POST['nome'];
+        $senha = $_POST['senha'];
+        $email = $_POST['email'];
+
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, email, senha) VALUES ('$nome', '$email', '$senha')");
 
     }
 ?>
@@ -23,17 +28,17 @@
     <form action="registrar.php" method="POST">
         <div class="main-container">
             <h1 class="primary">Registre-se</h1>
-            <div class="form-floating position-relative mb-1">
+            <div class="form-floating position-relative mb-1 ">
                 <input type="text" name="nome" class="form-control" id="floatingNome" placeholder="Nome Completo" required>    
-                <label for="floatingNome" class="labels">Nome</label>
+                <label for="floatingNome" class="labels"></label>
             </div>
             <div class="form-floating position-relative mb-1">
                 <input type="password" name="senha" class="form-control" id="floatingPassword" placeholder="Senha" required>    
-                <label for="floatingPassword" class="labels">Senha</label>
+                <label for="floatingPassword" class="labels"></label>
             </div>
             <div class="form-floating position-relative mb-1">
                 <input type="email" name="email" class="form-control" id="floatingEmail" placeholder="Email" required>    
-                <label for="floatingEmail" class="labels">Email</label>
+                <label for="floatingEmail" class="labels"></label>
             </div>
             <button type="submit" name="enviar" class="btn btn-custom">Registrar</button>
         </div>
