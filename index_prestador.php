@@ -23,7 +23,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
-            <a href="index.php">
+            <a href="index_prestador.php">
                 <img src="imagens/logo01.PNG" class="ms-5" alt="Logo" width="105">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav position-absolute top-50 end-0 translate-middle">
                     <a class="nav-link link-light" href="#">Gerenciar Trabalhos</a>
-                    <a class="nav-link active link-light" aria-current="page" href="perfil/perfil_inicio.html">Perfil</a>
+                    <a class="nav-link active link-light" aria-current="page" href="perfil/perfil_inicio.php">Perfil</a>
                     <a class="nav-link active link-light" aria-current="page" href="login.php">Sair</a>
 
                 </div>

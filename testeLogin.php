@@ -18,9 +18,9 @@
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
             if ($row['tipo_usuario'] == 'prestador') {
-                header('Location: sucesso.html'); 
+                header('Location: index_prestador.php'); 
             } elseif ($row['tipo_usuario'] == 'empregador') {
-                header('Location: sem_sucesso.html');
+                header('Location: index_empregador.php');
             }
         }
 
