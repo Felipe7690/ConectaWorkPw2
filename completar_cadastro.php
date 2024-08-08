@@ -1,14 +1,11 @@
 <?php 
     session_start();
 
-    if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)){
-
-        $_SESSION['email'] = $email;
-        $_SESSION['senha'] = $senha;
+    // Verifica se o usuário está logado
+    if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
         header('Location: login.php');
+        exit();
     }
-    
-    $logado = $_SESSION['email'];
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilo.css">
-    <title>Document</title>
+    <title>Completar Cadastro</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-primary">
@@ -35,9 +32,7 @@
                     <a class="nav-link link-light" href="#">Gerenciar Trabalhos</a>
                     <a class="nav-link active link-light" aria-current="page" href="perfil/perfil_inicio.php">Perfil</a>
                     <a class="nav-link active link-light" aria-current="page" href="login.php">Sair</a>
-
                 </div>
-                
             </div>
         </div>
     </nav>
@@ -50,14 +45,24 @@
             </form>
         </div>
     </nav>
-    <div>
-        <a href="emprego.html">
-            <img src="imagens/banner03.jpg" class="img-fluid" alt="Banner" id="banner01">
-        </a>
-    </div>
 
-    <div class="text-center my-5">
-        <a href="completar_cadastro.php" class="btn btn-primary btn-lg">Completar Cadastro</a>
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Completar Cadastro</h2>
+        <form action="processar_cadastro.php" method="post">
+            <div class="mb-3">
+                <label for="empresa" class="form-label">Empresa</label>
+                <input type="text" class="form-control" id="empresa" name="empresa" required>
+            </div>
+            <div class="mb-3">
+                <label for="descricao" class="form-label">Descrição</label>
+                <textarea class="form-control" id="descricao" name="descricao" rows="4" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="localizacao" class="form-label">Localização</label>
+                <input type="text" class="form-control" id="localizacao" name="localizacao" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
     </div>
 
     <!-- Rodapé -->
@@ -95,7 +100,6 @@
         </div>
     </footer>
     
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

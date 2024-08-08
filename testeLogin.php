@@ -11,8 +11,8 @@
         $result = $conexao->query($sql);
         $row = $result->fetch_assoc();
         if(mysqli_num_rows($result) < 1){
-            unset($_SESSION['email']);
-            unset($_SESSION['senha']);
+            unset($_SESSIONs['email']);
+            unset($_SESSIONs['senha']);
             header('Location: login.php');
         }else{
             $_SESSION['email'] = $email;
