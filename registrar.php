@@ -12,29 +12,29 @@ if(isset($_POST['enviar'])){
     // Insere o usuário na tabela usuarios
     $result = mysqli_query($conexao, "INSERT INTO usuarios(nome, email, senha, tipo_usuario) VALUES ('$nome', '$email', '$senha', '$tipo')");
 
-    if ($result) {
-        $id_usuario = mysqli_insert_id($conexao);
+        if ($result) {
+            $id_usuario = mysqli_insert_id($conexao);
 
-        if ($tipo == 'prestador') {
-            $stmt = $conexao->prepare("INSERT INTO candidatos (id_usuario) VALUES (?)");
-            $stmt->bind_param("i", $id_usuario);
-            if ($stmt->execute()) {
-                header('Location: sucesso.html');
-            } else {
-                header('Location: sem_sucesso.html');
+            if ($tipo == 'prestador') {
+                $stmt = $conexao->prepare("INSERT INTO candidatos (id_usuario) VALUES (?)");
+                $stmt->bind_param("i", $id_usuario);
+                if ($stmt->execute()) {
+                    header('Location: sucesso.html');
+                } else {
+                    header('Location: sem_sucesso.html');
+                }
+            } elseif ($tipo == 'empregador') {
+                $stmt = $conexao->prepare("INSERT INTO empregadores (id_usuario) VALUES (?)");
+                $stmt->bind_param("i", $id_usuario);
+                if ($stmt->execute()) {
+                    header('Location: sucesso.html');
+                } else {
+                    header('Location: sem_sucesso.html');
+                }
             }
-        } elseif ($tipo == 'empregador') {
-            $stmt = $conexao->prepare("INSERT INTO empregadores (id_usuario) VALUES (?)");
-            $stmt->bind_param("i", $id_usuario);
-            if ($stmt->execute()) {
-                header('Location: sucesso.html');
-            } else {
-                header('Location: sem_sucesso.html');
-            }
+        } else {
+            echo "Erro ao inserir usuário: " . mysqli_error($conexao);
         }
-    } else {
-        echo "Erro ao inserir usuário: " . mysqli_error($conexao);
-    }
 }
 ?>
 

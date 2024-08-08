@@ -138,7 +138,7 @@ if (isset($_SESSION['tipo_usuario'])) {
 <body>
     <nav class="navbar navbar-expand-lg bg-primary mb-0">
         <div class="container-fluid">
-            <a href="index_empregador.php">
+            <a href="../index_empregador.php">
                 <img src="../imagens/logo01.PNG" class="ms-5" alt="Logo" width="105">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
