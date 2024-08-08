@@ -43,15 +43,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("issssss", $id_empregador, $titulo, $descricao, $requisitos, $beneficios, $localizacao, $data_publicacao);
 
     if ($stmt->execute()) {
-        echo "Nova demanda registrada com sucesso!";
+        header('Location: criar_demanda.php'); 
     } else {
         echo "Erro: " . $stmt->error;
     }
 
     $stmt->close();
-} else {
-    echo "Nenhum dado foi enviado.";
-}
+} 
 
 $conexao->close();
 ?>
@@ -65,6 +63,26 @@ $conexao->close();
     <title>Registrar Demanda</title>
 </head>
 <body>
+
+<nav>
+        <nav class="navbar navbar-expand-lg bg-primary">
+            <div class="container-fluid">
+              <a href="index_empregador.php">
+                <img src="imagens/logo01.PNG" class="ms-5" alt="Bootstrap" width="105">
+              </a>                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav position-absolute top-50 end-0 translate-middle">
+                        <a class="nav-link link-light" href="#">Gerenciar Trabalhos</a>
+                        <a class="nav-link active link-light" aria-current="page" href="perfil/perfil_inicio.php">Perfil</a>
+                        <a class="nav-link active link-light" aria-current="page" href="login.php">Sair</a>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </nav>
     <div class="container mt-5">
         <h2 class="text-center">Registrar Nova Demanda</h2>
         <form action="criar_demanda.php" method="POST">
@@ -93,8 +111,44 @@ $conexao->close();
                 <input type="date" class="form-control" id="data_publicacao" name="data_publicacao" required>
             </div>
             <button type="submit" class="btn btn-primary">Registrar Demanda</button>
+            <a class="btn btn-primary" href="emprego.html">Voltar</a>
+
         </form>
     </div>
+
+    <footer class="bg-dark text-light py-4 mt-5">
+          <div class="container text-center">
+              <div class="row">
+                  <div class="col-md-4 mb-3 mb-md-0">
+                      <h5>Links Úteis</h5>
+                      <ul class="list-unstyled">
+                          <li><a href="politica_privacidade.html" class="text-light text-decoration-none">Política de Privacidade</a></li>
+                          <li><a href="desenvolvedores.html" class="text-light text-decoration-none">Desenvolvedores</a></li>
+                          <li><a href="#" class="text-light text-decoration-none">Sobre Nós</a></li>
+                          <li><a href="#" class="text-light text-decoration-none">Contato</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-md-4 mb-3 mb-md-0">
+                      <h5>Redes Sociais</h5>
+                      <ul class="list-unstyled">
+                          <li><a href="#" class="text-light text-decoration-none">Facebook</a></li>
+                          <li><a href="#" class="text-light text-decoration-none">Instagram</a></li>
+                          <li><a href="#" class="text-light text-decoration-none">Youtube</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-md-4">
+                      <h5>Suporte</h5>
+                      <ul class="list-unstyled">
+                          <li><a href="mailto:conectaworkrtb@gmail.com" class="text-light text-decoration-none">Email: conectaworkrtb@gmail.com</a></li>
+                          <li><a href="tel:+5562900000000" class="text-light text-decoration-none">Telefone: +55 62 9 0000-0000</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="mt-3">
+                  <p class="mb-0">&copy; 2024 CONECTA WORK. Todos os direitos reservados.</p>
+              </div>
+          </div>
+      </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -148,7 +148,7 @@ if (isset($_SESSION['tipo_usuario'])) {
                 <div class="navbar-nav position-absolute top-50 end-0 translate-middle">
                     <a class="nav-link link-light" href="#">Gerenciar Trabalhos</a>
                     <a class="nav-link active link-light" aria-current="page" href="editar_empregador.php">Perfil</a>
-                    <a class="nav-link active link-light" aria-current="page" href="login.php">Sair</a>
+                    <a class="nav-link active link-light" aria-current="page" href="../login.php">Sair</a>
                 </div>
             </div>
         </div>
