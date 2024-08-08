@@ -7,6 +7,8 @@ create table usuarios (
     nome varchar(255) not null,
     email varchar(100) not null unique,
     senha varchar(50) not null
+
+
 );
 
 create table candidatos (
@@ -48,3 +50,7 @@ create table candidaturas (
     foreign key (id_vaga) references vagas(id_vaga),
     foreign key (id_candidato) references candidatos(id_candidato)
 );
+
+ALTER TABLE usuarios
+ADD tipo_usuario ENUM('prestador', 'empregador') NOT NULL AFTER senha;
+
